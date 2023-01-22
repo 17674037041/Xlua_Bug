@@ -1,0 +1,13 @@
+[
+    {"id":1001,"name":"弓箭","icon":"Icon_弓箭","type":"equipment","des":"射程很远的武器"},
+    {"id":1002,"name":"手套","icon":"Icon_手套","type":"equipment","des":"冬天可以保暖的神器"},
+    {"id":1003,"name":"蓝药","icon":"Icon_蓝药","type":"prop","des":"补充蓝条"},
+    {"id":1004,"name":"红药","icon":"Icon_红药","type":"prop","des":"拯救你于危难之间"},
+    {"id":1005,"name":"红宝石","icon":"Icon_红宝石","type":"gem","des":"合成武器所需材料"},
+    {"id":1006,"name":"蓝宝石","icon":"Icon_蓝宝石","type":"gem","des":"合成武器所需材料"},
+    {"id":1007,"name":1,"icon":"Icon_1","type":"equipment","des":1},
+    {"id":1008,"name":2,"icon":"Icon_2","type":"equipment","des":1},
+    {"id":1009,"name":3,"icon":"Icon_3","type":"equipment","des":1},
+    {"id":1010,"name":4,"icon":"Icon_4","type":"equipment","des":1},
+    {"id":1011,"name":5,"icon":"Icon_5","type":"equipment","des":1}
+    ]
