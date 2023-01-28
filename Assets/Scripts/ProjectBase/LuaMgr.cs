@@ -9,7 +9,7 @@ using XLua;
 /// </summary>
 public class LuaMgr : BaseManager<LuaMgr>
 {
-    private LuaEnv luaEnv;
+    public LuaEnv luaEnv;
 
     public void Init()
     {

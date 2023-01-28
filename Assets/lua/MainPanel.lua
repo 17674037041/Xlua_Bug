@@ -17,7 +17,6 @@ function MainPanel:Init()
     self.panelObj.transform:SetParent(Canvas,false)  --初始化主界面
     --2.找到对应控件
     self.BugBtn=self.panelObj.transform:Find("BagBtn"):GetComponent("Button")  --找到背包按钮
-    print(self.BugBtn)
     --3.为控件加上事件监听 进行点击等等的逻辑处理
     self.BugBtn.onClick:AddListener(function()  --为背包按钮添加按钮点击事件
         self:BugBtnClick()

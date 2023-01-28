@@ -25,3 +25,6 @@ Canvas=GameObject.Find("Canvas").transform
 --自己写的C#脚本相关
 --直接得到AB包资源管理器的单例对象
 ABMgr=CS.ABMgr.GetInstance()
+
+--组件
+GridPool = GameObject.Find("Canvas/GridPool").transform

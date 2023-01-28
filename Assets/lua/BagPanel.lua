@@ -11,8 +11,6 @@ BagPanel.TogProp = nil  --道具选项
 BagPanel.TogGem = nil  --宝石选项
 BagPanel.ScrollView = nil  --ScrollView
 BagPanel.Content = nil  --ScrollView中的Content内容框
---存储当前页面显示的格子
-BagPanel.items = {}
 
 --"成员方法"
 --初始化方法
@@ -81,10 +79,12 @@ function BagPanel:ChangeType(type)
     end
 
     --2.更新之前 清空当前页面显示的格子（items）
-    for i = 1,self:tableLength(self.items) do
-        self.items[i]:Destroy()  --销毁格子对象
+    for i = 1,#ObjectPool.curr_Page_Grid do   
+        ObjectPool.curr_Page_Grid[i]:SetActive(false)  --当前页的格子状态改变（隐藏）
+        ObjectPool.curr_Page_Grid[i].transform:SetParent(GridPool,false)  --移入格子池节点（GridPool）
+        table.insert(ObjectPool.grid_List,ObjectPool.curr_Page_Grid[i])  --格子存入格子池（ObjectPool.grid_List）
     end
-    self.items = {}
+    ObjectPool.curr_Page_Grid = {}  --当前页清空  加载下一页
 
     --3.根据当前toggle的类型来创建新的格子以及初始化物品信息
     local NowType = nil
@@ -100,12 +100,13 @@ function BagPanel:ChangeType(type)
     for i = 1, self:tableLength(NowType) do
         --1.根据数据创建格子对象
         local grid = ItemGrid:new()
+
         --2.设置对象位置
         grid:Init(self.Content,i)
         --3.初始化它的信息 图标 数量
         grid:InitData(NowType,i)
         --4.生成的格子存起来
-        table.insert(self.items,grid)  --生成的格子存入items
+        table.insert(ObjectPool.curr_Page_Grid,grid.obj)  --生成的格子存入当前页中
     end
 end
 

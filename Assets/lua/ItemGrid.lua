@@ -10,17 +10,18 @@ ItemGrid.text = nil  --物品数量
 --成员函数
 function ItemGrid:Init(father,i)
     --加载一个格子
-    self.obj = ABMgr:LoadRes("ui","Grid_item")
-    local w = 0
-    local h = 0
-    w = self.obj:GetComponent("RectTransform").rect.width  --格子宽度
-    h = self.obj:GetComponent("RectTransform").rect.height  --格子高度
+    self.obj = ObjectPool:Get_GridObj()  --从池中获取一个对象
+    self.obj:SetActive(true)
+    -- local w = 0
+    -- local h = 0
+    -- w = self.obj:GetComponent("RectTransform").rect.width  --格子宽度
+    -- h = self.obj:GetComponent("RectTransform").rect.height  --格子高度
     --设置父对象
     self.obj.transform:SetParent(father,false)
-    --初始化格子和物品信息
-    local x = (i-1) % 3 * (w+20)  --格子的x坐标
-    local y = math.floor((i-1) / 3) * (h+20)  --格子的y坐标
-    self.obj.transform.localPosition = Vector3(x,-y,0)  --初始化格子位置
+    -- --初始化格子和物品信息
+    -- local x = (i-1) % 2 * (w+60)  --格子的x坐标
+    -- local y = math.floor((i-1) / 2) * (h+20)  --格子的y坐标
+    -- self.obj.transform.localPosition = Vector3(x,-y,0)  --初始化格子位置
     self.imgIcon = self.obj.transform:Find("Item_icon"):GetComponent("Image")  --物品图标
     self.text = self.obj.transform:Find("Item_num"):GetComponent("Text")  --物品数量
 end
