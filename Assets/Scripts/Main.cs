@@ -12,10 +12,18 @@ public class Main : MonoBehaviour
     {
         LuaMgr.GetInstance().Init();
         LuaMgr.GetInstance().DoLuaFile("Main");
+        test();
     }
 
     void test()
     {
         Debug.Log("≤‚ ‘git202222");
+        AssetBundle ab = null;
+        ABMgr.GetInstance().GetabDic.TryGetValue("ui", out ab);
+        string[] s = ab.GetAllAssetNames();
+        foreach(string item in s)
+        {
+            Debug.Log(item);
+        }
     }
 }

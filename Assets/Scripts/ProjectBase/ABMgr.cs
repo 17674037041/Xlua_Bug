@@ -23,7 +23,13 @@ public class ABMgr : SingletonAutoMono<ABMgr>
     //AB包不能够重复加载 重复加载会报错
     //字典 用字典来存储 加载过的AB包 
     private Dictionary<string, AssetBundle> abDic = new Dictionary<string, AssetBundle>();
-
+    public Dictionary<string,AssetBundle> GetabDic
+    {
+        get
+        {
+            return abDic;
+        }
+    }
     /// <summary>
     /// 这个AB包存放路径 方便修改
     /// </summary>
